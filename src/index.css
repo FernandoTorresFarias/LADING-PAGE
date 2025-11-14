@@ -2,21 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ estilos globales */
+/*  ESTILOS GLOBALES OSCUROS   */
+
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900;
+    background-color: #050509; /* casi negro */
+    color: #e5e7eb;           /* gris claro */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
 
-/* ✅ clase para usar texto con gradiente */
+/* TEXTO CON GRADIENTE DORADO  */
+
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-300;
   }
 }
 
+/* INPUTS CORPORATIVOS OSCUROS */
+
 .input {
-  @apply w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition-all;
+  @apply w-full px-4 py-3 rounded-lg border border-yellow-500/40 
+         bg-[#0b0c10] text-slate-100
+         focus:border-yellow-400 
+         focus:ring-2 focus:ring-yellow-500/40 
+         outline-none transition-all;
+}
+
+
+:root {
+  --gold: #f5c518; /* dorado premium */
+  --gold-light: #ffdd57;
+  --gold-dark: #c49a00;
 }

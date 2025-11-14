@@ -6,40 +6,44 @@ const features = [
   {
     icon: Clock,
     title: 'Disponibilidad 24/7',
-    description: 'Monitoreo continuo todos los días del año sin interrupciones.'
+    description: 'Monitoreo permanente los 365 días del año, sin interrupciones.'
   },
   {
     icon: Award,
     title: 'Certificaciones',
-    description: 'Personal certificado con los más altos estándares de la industria.'
+    description: 'Personal habilitado y capacitado según normativas vigentes.'
   },
   {
     icon: Headphones,
-    title: 'Soporte Inmediato',
-    description: 'Equipo de respuesta rápida ante cualquier eventualidad.'
+    title: 'Respuesta Inmediata',
+    description: 'Atención y coordinación rápida ante cualquier evento.'
   },
   {
     icon: Zap,
     title: 'Tecnología Avanzada',
-    description: 'Equipos de última generación con IA y análisis predictivo.'
+    description: 'Infraestructura moderna con sistemas inteligentes y analíticos.'
   }
 ];
 
 const Features = () => {
   return (
-    <section id="caracteristicas" className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+    <section
+      id="caracteristicas"
+      className="py-20 bg-gradient-to-br from-black via-[#020617] to-black"
+    >
       <div className="container mx-auto px-4">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_0_15px_rgba(245,197,24,0.2)]">
             ¿Por qué elegirnos?
           </h2>
-          <p className="text-xl text-blue-200 max-w-2xl mx-auto">
-            Experiencia, tecnología y compromiso al servicio de tu seguridad
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Experiencia, tecnología y compromiso al servicio de tu seguridad.
           </p>
         </motion.div>
 
@@ -55,11 +59,18 @@ const Features = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-blue-600/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-blue-400/30">
-                  <Icon className="w-10 h-10 text-blue-300" />
+                {/* ICONO */}
+                <div className="bg-yellow-500/15 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-yellow-400/40 shadow-[0_0_12px_rgba(245,197,24,0.3)]">
+                  <Icon className="w-10 h-10 text-yellow-400 drop-shadow-[0_0_12px_rgba(245,197,24,0.8)]" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-blue-200">{feature.description}</p>
+
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-300">
+                  {feature.description}
+                </p>
               </motion.div>
             );
           })}

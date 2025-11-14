@@ -69,8 +69,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">Teléfono</h3>
-                  <p className="text-slate-600">+1 (555) 123-4567</p>
-                  <p className="text-slate-600">+1 (555) 987-6543</p>
+                  <p className="text-slate-600">+54 9 (3804) 23-1880</p>
                 </div>
               </div>
 
@@ -80,8 +79,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">Email</h3>
-                  <p className="text-slate-600">info@secureguard.com</p>
-                  <p className="text-slate-600">ventas@secureguard.com</p>
+                  <p className="text-slate-600">guardiandeacero.srl@gmail.com</p>
                 </div>
               </div>
 
@@ -91,8 +89,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">Dirección</h3>
-                  <p className="text-slate-600">Av. Principal 123</p>
-                  <p className="text-slate-600">Ciudad, País 12345</p>
+                  <p className="text-slate-600">Pueyrredón 81</p>
                 </div>
               </div>
 
