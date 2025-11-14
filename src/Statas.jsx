@@ -10,7 +10,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="py-20 bg-blue-600">
+    <section className="py-20 bg-[#020617]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
@@ -22,10 +22,12 @@ const Stats = () => {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+              <div className="text-5xl md:text-6xl font-bold mb-2 text-yellow-400">
                 {stat.number}
               </div>
-              <div className="text-blue-100 text-lg">{stat.label}</div>
+              <div className="text-gray-300 text-lg">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </div>
