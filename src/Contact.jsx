@@ -16,14 +16,13 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //  WhatsApp únicamente
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const texto = `Hola! Mi nombre es ${formData.name}.
-    Mensaje: ${formData.message}`;
+Mensaje: ${formData.message}`;
 
-    const numeroWhatsApp = "54900000000"; 
+    const numeroWhatsApp = "54900000000"; // <<--- poné tu número
 
     window.open(
       `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`,
@@ -39,114 +38,129 @@ const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
+    <section
+      id="contacto"
+      className="py-24 bg-gradient-to-b from-black to-slate-900 text-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Título */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Contáctanos
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Estamos listos para proteger lo que más te importa
+          <p className="text-lg text-gray-300">
+            Estamos listos para proteger lo que más te importa.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* ✅ NO TOCAMOS ESTA PARTE */}
+        {/* Contenedor */}
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="space-y-10"
           >
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Phone className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Teléfono</h3>
-                  <p className="text-slate-600">+54 9 (3804) 23-1880</p>
-                </div>
+            {/* Teléfono */}
+            <div className="flex items-start space-x-4">
+              <div className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/30">
+                <Phone className="w-7 h-7 text-yellow-400" />
               </div>
+              <div>
+                <h3 className="font-semibold text-lg">Teléfono</h3>
+                <p className="text-gray-300">+54 9 (3804) 23-1880</p>
+              </div>
+            </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Mail className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Email</h3>
-                  <p className="text-slate-600">guardiandeacero.srl@gmail.com</p>
-                </div>
+            {/* Email */}
+            <div className="flex items-start space-x-4">
+              <div className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/30">
+                <Mail className="w-7 h-7 text-yellow-400" />
               </div>
+              <div>
+                <h3 className="font-semibold text-lg">Email</h3>
+                <p className="text-gray-300">guardiandeacero.srl@gmail.com</p>
+              </div>
+            </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <MapPin className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Dirección</h3>
-                  <p className="text-slate-600">Pueyrredón 81</p>
-                </div>
+            {/* Dirección */}
+            <div className="flex items-start space-x-4">
+              <div className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/30">
+                <MapPin className="w-7 h-7 text-yellow-400" />
               </div>
+              <div>
+                <h3 className="font-semibold text-lg">Dirección</h3>
+                <p className="text-gray-300">Pueyrredón 81</p>
+              </div>
+            </div>
 
-              <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-8 rounded-2xl text-white">
-                <h3 className="text-2xl font-bold mb-4">Horario de Atención</h3>
-                <p className="mb-2">Lunes - Viernes: 8:00 AM - 6:00 PM</p>
-                <p className="mb-2">Sábados: 9:00 AM - 2:00 PM</p>
-                <p className="font-semibold mt-4">Emergencias: 24/7</p>
-              </div>
+            {/* Horarios */}
+            <div className="bg-gradient-to-br from-yellow-500/20 to-yellow-700/10 p-8 rounded-2xl border border-yellow-500/30">
+              <h3 className="text-2xl font-bold mb-4 text-yellow-300">
+                Horario de Atención
+              </h3>
+              <p>Lunes - Viernes: 8:00 - 18:00</p>
+              <p>Sábados: 9:00 - 14:00</p>
+              <p className="mt-4 font-semibold">Emergencias: 24/7</p>
             </div>
           </motion.div>
 
-          {/* ✅ FORMULARIO SIMPLIFICADO */}
-          <motion.div
+          {/* FORMULARIO - FONDO NEGRO */}
+          <motion.form
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="bg-black p-10 rounded-2xl border border-yellow-500/20 shadow-2xl shadow-yellow-500/10"
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-xl">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Nombre Completo
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Mensaje
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows="4"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
-                    placeholder="Cuéntanos sobre tus necesidades de seguridad..."
-                  ></textarea>
-                </div>
-
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">
-                  Enviar Mensaje por WhatsApp
-                  <Send className="ml-2 w-5 h-5" />
-                </Button>
+            <div className="space-y-8">
+              {/* Nombre */}
+              <div>
+                <label className="block text-sm font-semibold mb-2 text-gray-200">
+                  Nombre Completo
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-black border border-yellow-500/30 text-white rounded-lg 
+                         focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/40"
+                  placeholder="Tu nombre"
+                />
               </div>
-            </form>
-          </motion.div>
+
+              {/* Mensaje */}
+              <div>
+                <label className="block text-sm font-semibold mb-2 text-gray-200">
+                  Mensaje
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows="4"
+                  className="w-full px-4 py-3 bg-black border border-yellow-500/30 text-white rounded-lg 
+                         focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/40"
+                  placeholder="Cuéntanos tus necesidades de seguridad..."
+                ></textarea>
+              </div>
+
+              {/* Botón */}
+              <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-6 text-lg rounded-xl">
+                Enviar Mensaje por WhatsApp
+                <Send className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </motion.form>
         </div>
       </div>
     </section>
