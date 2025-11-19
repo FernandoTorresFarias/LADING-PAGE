@@ -139,39 +139,60 @@ const Header = () => {
           </div>
 
           {/* MENÚ MOBILE */}
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="md:hidden mt-3 pb-5 space-y-4"
-            >
-              {[
-                ["Servicios", "servicios"],
-                ["Características", "caracteristicas"],
-                ["Contacto", "contacto"],
-              ].map(([label, section]) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className="
-                    block text-left text-gray-200 
-                    hover:text-yellow-400 transition-all font-medium
-                  "
-                >
-                  {label}
-                </button>
-              ))}
+{isMobileMenuOpen && (
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3 }}
+    className="
+      md:hidden 
+      mt-4 pb-4 space-y-4
 
-              <Button
-                onClick={() => scrollToSection("contacto")}
-                className="
-                  w-full bg-yellow-500 hover:bg-yellow-400 text-black shadow-lg
-                "
-              >
-                Solicitar Cotización
-              </Button>
-            </motion.div>
-          )}
+      /* 🔥 FONDO MOBILE PREMIUM */
+      bg-black/100 
+      backdrop-blur-xl 
+
+      border-t border-yellow-500/40
+      shadow-[0_0_20px_rgba(245,197,24,0.3)]
+
+      rounded-xl
+      p-6
+    "
+  >
+    <button
+      onClick={() => scrollToSection('servicios')}
+      className="block w-full text-left text-slate-200 hover:text-yellow-400 transition-colors font-medium"
+    >
+      Servicios
+    </button>
+
+    <button
+      onClick={() => scrollToSection('caracteristicas')}
+      className="block w-full text-left text-slate-200 hover:text-yellow-400 transition-colors font-medium"
+    >
+      Características
+    </button>
+
+    <button
+      onClick={() => scrollToSection('contacto')}
+      className="block w-full text-left text-slate-200 hover:text-yellow-400 transition-colors font-medium"
+    >
+      Contacto
+    </button>
+
+    <Button
+      onClick={() => scrollToSection('contacto')}
+      className="
+        w-full bg-yellow-500 hover:bg-yellow-400 text-black font-semibold
+        shadow-[0_0_10px_rgba(245,197,24,0.8)]
+      "
+    >
+      Solicitar Cotización
+    </Button>
+  </motion.div>
+)}
+
+    
         </nav>
       </motion.header>
     </>
